@@ -1,0 +1,41 @@
+{% extends 'matricula_base.html'%}
+
+{%block content%}
+{% load socialaccount static i18n %}
+
+
+<link rel="stylesheet" href="{% static 'css/auth-buttons.css'%}">
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">{% trans 'Sign up by email' %} </div>
+  <div class="panel-body">
+
+<div class="row">
+<div class="table-responsive col-md-6" style="border-right-style: solid;">
+	<h2> {% trans 'Your data' %}</h2>
+	<form method="post" id="{% url 'create_user'%}" class="form">
+		<table class="table table-striped">
+			{% csrf_token %}
+			{{form.as_table}}
+	<td></td><td>
+		<button type="submit" class="btn btn-success" value="Save" >
+		<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+		{% trans 'Send' %}
+		 </button>
+	</td>
+		</table>
+		
+	</form>
+</div>
+
+<div class="col-md-1"></div>
+<div class="col-md-5" id="recover_pass">
+ {% include 'recover.html' %}
+
+</div>
+</div>
+</div>
+</div>
+{%endblock%}
+
