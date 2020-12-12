@@ -3,6 +3,9 @@ from django.contrib import admin
 from matricula.views import index
 from matricula.views.Auth import *
 
+from django.conf. import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     # Examples:
     # url(r'^$', 'academica.views.home', name='home'),
@@ -14,4 +17,4 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url('^accounts/profile/?$', get_profile, name='profile'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
