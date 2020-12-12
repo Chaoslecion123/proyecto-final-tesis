@@ -3,7 +3,7 @@ from django.contrib import admin
 from matricula.views import index
 from matricula.views.Auth import *
 
-from django.conf. import settings
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
